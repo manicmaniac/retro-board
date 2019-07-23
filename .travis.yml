@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -f ./docker/Backend.Dockerfile -t hub.jaussoin.com/server .
+  - docker build -f ./docker/Frontend.Dockerfile -t hub.jaussoin.com/client .
+
+script:
+  - docker run hub.jaussoin.com/server yarn ci-test --coverage
