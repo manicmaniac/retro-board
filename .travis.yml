@@ -7,4 +7,4 @@ before_install:
   - docker build -f ./docker/Frontend.Dockerfile -t hub.jaussoin.com/client .
 
 script:
-  - docker run hub.jaussoin.com/server yarn ci-test --coverage
+  - docker run hub.jaussoin.com/server cd /usr/src/backend && yarn ci-test --coverage
